@@ -19,7 +19,7 @@ setwd("~/Desktop/Conference Materials/ResBaz2022brms/csvFiles")
 ########################### brms Basics (GLM) ###########################
 
 # load data
-d0 <- read.csv("dyad_cross.csv")
+d0 <- read.csv("dyad_cross.csv", stringsAsFactors = TRUE)
 # Note: This is dyadic, cross-sectional data from self-identified heterosexual couples. 
   # Let's start with only one partner from each dyad to learn the basics
 
