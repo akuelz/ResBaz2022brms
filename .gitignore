@@ -4,5 +4,4 @@
 *.pptx
 
 # potentially edit these later
-Saved_rdsObjects/
-csvFiles/
+.Rproj.user
