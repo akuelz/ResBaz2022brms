@@ -3,9 +3,6 @@
 ### Introduction to brms ###
 ############################
 
-# install necessary packages
-#install.packages(brms)
-#install.packages("bayestestR")
 
 # load packages
 library(brms)
@@ -14,7 +11,7 @@ library(bayesplot)
 library(ggfortify)
 
 # set wd
-setwd("~/Desktop/Conference Materials/ResBaz2022brms/csvFiles")
+setwd("~/csvFiles")
 
 ########################### brms Basics (GLM) ###########################
 
@@ -49,7 +46,7 @@ saveRDS(b0N, "simplemodelN.rds")
 saveRDS(b0SN, "simplemodelSN.rds")
 saveRDS(b0ST, "simplemodelST.rds")
 
-setwd("~/Desktop/Conference Materials/ResBaz2022brms/Saved_rdsObjects")
+setwd("~/Saved_rdsObjects")
 b0N <- readRDS("simplemodelN.rds")
 b0SN <- readRDS("simplemodelSN.rds")
 b0ST <- readRDS("simplemodelST.rds")
@@ -204,7 +201,7 @@ bayes_R2(b4)
 
 
 ### Repeated Measures Dyadic Model ###
-setwd("~/Desktop/Conference Materials/ResBaz2022brms/csvFiles")
+setwd("~/csvFiles")
 dRep <- read.csv("dyad_repeatWide.csv")
 str(dRep)
 summary(dRep)
@@ -225,7 +222,7 @@ bf_m <- bf(m_hb~ 1 + (1|p|DYAD), autocor= ~ar(time= DAY, gr=DYAD))
 b5 <- brm(bf_f + bf_m + set_rescor(TRUE), data=dRep, chains=2, cores=10, seed = 426)
 saveRDS(b5, "repeated_b5.rds")
 
-setwd("~/Desktop/Conference Materials/ResBaz2022brms/Saved_rdsObjects")
+setwd("~/Saved_rdsObjects")
 b5 <- readRDS("repeated_b5.rds")
 summary(b5)
 
